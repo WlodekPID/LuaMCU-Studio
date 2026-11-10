@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "sourcePolicy": {
+    "approvedPanelViews": ["POMIARY", "WYJŚCIA"],
+    "excludedPanelViews": ["WIZUALIZACJA"],
+    "reason": "WIZUALIZACJA jest produktem AI, a nie źródłem zatwierdzonych komponentów."
+  },
+  "components": [
+    {
+      "type": "measurement",
+      "label": "Kafelek pomiarowy",
+      "description": "Wartość kanału z jednostką i stanem OK/LO/HI/OFF.",
+      "defaultSize": { "width": 280, "height": 170 },
+      "minimumSize": { "width": 220, "height": 140 },
+      "binding": "channel",
+      "defaults": {
+        "label": "Temperatura",
+        "channel": "CH1",
+        "unit": "°C",
+        "decimals": 1,
+        "low": 10,
+        "high": 80
+      }
+    },
+    {
+      "type": "alarmLamp",
+      "label": "Lampka alarmowa",
+      "description": "Lampka stanu kanału: OK, LO, HI albo OFF.",
+      "defaultSize": { "width": 190, "height": 70 },
+      "minimumSize": { "width": 150, "height": 58 },
+      "binding": "channel",
+      "defaults": {
+        "label": "Stan CH1",
+        "channel": "CH1"
+      }
+    },
+    {
+      "type": "chart",
+      "label": "Wykres",
+      "description": "Wykres jednego lub wielu kanałów pomiarowych.",
+      "defaultSize": { "width": 540, "height": 300 },
+      "minimumSize": { "width": 340, "height": 220 },
+      "binding": "channels",
+      "defaults": {
+        "label": "Wykres procesu",
+        "channels": ["CH1", "CH2"],
+        "maxPoints": 60
+      }
+    },
+    {
+      "type": "relay",
+      "label": "Przekaźnik",
+      "description": "Stan i sterowanie jednym z wyjść R1–R5.",
+      "defaultSize": { "width": 290, "height": 100 },
+      "minimumSize": { "width": 240, "height": 86 },
+      "binding": "relay",
+      "defaults": {
+        "label": "Przekaźnik R1",
+        "relay": "R1"
+      }
+    },
+    {
+      "type": "slider",
+      "label": "Suwak",
+      "description": "Nastawa liczbowa, np. moc SSR lub wartość zadana.",
+      "defaultSize": { "width": 300, "height": 116 },
+      "minimumSize": { "width": 230, "height": 96 },
+      "binding": "channel",
+      "defaults": {
+        "label": "Nastawa",
+        "channel": "CH1",
+        "unit": "%",
+        "minimum": 0,
+        "maximum": 100,
+        "step": 1,
+        "value": 50
+      }
+    },
+    {
+      "type": "text",
+      "label": "Tekst",
+      "description": "Nagłówek lub opis na ekranie.",
+      "defaultSize": { "width": 320, "height": 80 },
+      "minimumSize": { "width": 120, "height": 48 },
+      "binding": "none",
+      "defaults": {
+        "text": "Nowy opis",
+        "fontSize": 28,
+        "align": "left"
+      }
+    },
+    {
+      "type": "button",
+      "label": "Przycisk",
+      "description": "Przycisk projektu bez bezpośredniego wykonywania kodu.",
+      "defaultSize": { "width": 220, "height": 74 },
+      "minimumSize": { "width": 140, "height": 56 },
+      "binding": "none",
+      "defaults": {
+        "label": "Przycisk",
+        "action": "none"
+      }
+    }
+  ]
+}

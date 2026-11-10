@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LuaMCU Studio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", sans-serif;
+      background: #e8edf2;
+      color: #17212b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, #fff 0, #edf2f6 48%, #d8e0e8 100%);
+    }
+
+    main {
+      width: min(680px, 100%);
+      padding: clamp(32px, 6vw, 64px);
+      border: 1px solid #c8d1da;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 24px 70px rgba(37, 52, 65, .16);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 8vw, 64px);
+      letter-spacing: -.04em;
+    }
+
+    p {
+      margin: 0 auto 28px;
+      max-width: 520px;
+      color: #526170;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    a {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 28px;
+      border-radius: 12px;
+      background: #005bbb;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 91, 187, .25);
+    }
+
+    small {
+      display: block;
+      margin-top: 24px;
+      color: #74808b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>LuaMCU Studio</h1>
+    <p>
+      Ułóż własny ekran sterownika z bezpiecznych, zatwierdzonych komponentów.
+      Edytor działa bez instalacji i zapisuje projekt jako zwykły plik JSON.
+    </p>
+    <a href="studio/">Otwórz Studio</a>
+    <small>Wersja prototypowa — bez połączenia z agentem AI.</small>
+  </main>
+</body>
+</html>

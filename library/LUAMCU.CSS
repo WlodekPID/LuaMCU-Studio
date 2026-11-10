@@ -1,0 +1,275 @@
+:root {
+  --luamcu-bg: #f2f5f8;
+  --luamcu-surface: #ffffff;
+  --luamcu-border: #dbe4ed;
+  --luamcu-text: #0c2037;
+  --luamcu-muted: #597086;
+  --luamcu-ok: #0bc363;
+  --luamcu-lo: #1874e9;
+  --luamcu-hi: #ef4335;
+  --luamcu-off: #4b5563;
+  --luamcu-accent: #1874e9;
+  --luamcu-series-1: #1874e9;
+  --luamcu-series-2: #ef4335;
+  --luamcu-series-3: #16a05d;
+  --luamcu-series-4: #9b59b6;
+  --luamcu-series-5: #ef9000;
+  --luamcu-series-6: #00a6a6;
+  --luamcu-series-7: #d35400;
+  --luamcu-series-8: #50657a;
+  color-scheme: light;
+}
+
+.luamcu-measurement,
+.luamcu-chart,
+.luamcu-slider,
+.luamcu-relay {
+  box-sizing: border-box;
+  color: var(--luamcu-text);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.luamcu-measurement {
+  min-width: 220px;
+  padding: 18px;
+  border: 1px solid var(--luamcu-border);
+  border-radius: 14px;
+  background: var(--luamcu-surface);
+  box-shadow: 0 8px 24px rgba(12, 32, 55, .08);
+}
+
+.luamcu-measurement__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.luamcu-measurement__label {
+  color: var(--luamcu-muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.luamcu-measurement__reading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.luamcu-measurement__value {
+  font-size: clamp(42px, 7vw, 72px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.luamcu-measurement__unit {
+  color: var(--luamcu-muted);
+  font-size: 28px;
+}
+
+.luamcu-measurement.is-disabled {
+  opacity: .6;
+}
+
+.luamcu-alarm {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--luamcu-muted);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.luamcu-alarm__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--luamcu-off);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--luamcu-off) 18%, transparent);
+}
+
+.luamcu-alarm[data-state="OK"] .luamcu-alarm__dot {
+  background: var(--luamcu-ok);
+}
+
+.luamcu-alarm[data-state="LO"] .luamcu-alarm__dot {
+  background: var(--luamcu-lo);
+}
+
+.luamcu-alarm[data-state="HI"] .luamcu-alarm__dot {
+  background: var(--luamcu-hi);
+}
+
+.luamcu-chart {
+  padding: 18px;
+  border: 1px solid var(--luamcu-border);
+  border-radius: 14px;
+  background: var(--luamcu-surface);
+}
+
+.luamcu-chart__title {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.luamcu-chart svg {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+}
+
+.luamcu-chart__grid {
+  stroke: #e6edf4;
+  stroke-width: 1;
+}
+
+.luamcu-chart__axis {
+  fill: var(--luamcu-muted);
+  font: 12px "Segoe UI", Arial, sans-serif;
+}
+
+.luamcu-chart__line {
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.luamcu-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.luamcu-chart__legend-item::before {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--luamcu-series-color);
+  content: "";
+}
+
+.luamcu-slider {
+  min-width: 230px;
+  padding: 18px;
+  border: 1px solid var(--luamcu-border);
+  border-radius: 14px;
+  background: var(--luamcu-surface);
+  box-shadow: 0 8px 24px rgba(12, 32, 55, .08);
+}
+
+.luamcu-slider__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.luamcu-slider__label {
+  color: var(--luamcu-muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.luamcu-slider__output {
+  color: var(--luamcu-text);
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.luamcu-slider__input {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--luamcu-accent);
+  cursor: pointer;
+}
+
+.luamcu-relay__button {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  width: 100%;
+  min-width: 240px;
+  min-height: 78px;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--luamcu-border);
+  border-radius: 14px;
+  background: var(--luamcu-surface);
+  color: var(--luamcu-text);
+  cursor: pointer;
+  font: 600 16px "Segoe UI", Arial, sans-serif;
+  text-align: left;
+}
+
+.luamcu-relay__button:hover:not(:disabled),
+.luamcu-relay__button:focus-visible {
+  border-color: var(--luamcu-accent);
+  outline: 2px solid rgba(24, 116, 233, .18);
+}
+
+.luamcu-relay__button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.luamcu-relay__symbol {
+  position: relative;
+  width: 52px;
+  height: 34px;
+}
+
+.luamcu-relay__symbol::before,
+.luamcu-relay__symbol::after {
+  position: absolute;
+  top: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--luamcu-muted);
+  content: "";
+}
+
+.luamcu-relay__symbol::before { left: 2px; }
+.luamcu-relay__symbol::after { right: 2px; }
+
+.luamcu-relay__arm {
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  width: 38px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--luamcu-muted);
+  transform: rotate(-24deg);
+  transform-origin: left center;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.luamcu-relay.is-on .luamcu-relay__arm {
+  background: var(--luamcu-ok);
+  transform: rotate(0deg);
+}
+
+.luamcu-relay__state {
+  min-width: 42px;
+  color: var(--luamcu-off);
+  text-align: right;
+}
+
+.luamcu-relay.is-on .luamcu-relay__state {
+  color: var(--luamcu-ok);
+}
+
+.luamcu-relay.is-error .luamcu-relay__state {
+  color: var(--luamcu-hi);
+  font-size: 12px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuaMCU Studio — edytor wizualizacji</title>
+  <link rel="stylesheet" href="../library/LUAMCU.CSS">
+  <link rel="stylesheet" href="studio.css">
+  <script src="../library/LUAMCU.JS" defer></script>
+  <script src="contract.js" defer></script>
+  <script src="studio.js" defer></script>
+</head>
+<body>
+  <header class="studio-header">
+    <div class="studio-brand">
+      <strong>LuaMCU Studio</strong>
+      <span>Edytor wizualizacji</span>
+    </div>
+    <label class="project-name">
+      <span>Nazwa projektu</span>
+      <input id="projectName" maxlength="80" value="Moja wizualizacja">
+    </label>
+    <div class="toolbar" aria-label="Narzędzia projektu">
+      <button id="undoButton" type="button" title="Cofnij (Ctrl+Z)">Cofnij</button>
+      <button id="redoButton" type="button" title="Ponów (Ctrl+Y)">Ponów</button>
+      <button id="duplicateButton" type="button" disabled>Duplikuj</button>
+      <button id="deleteButton" type="button" class="danger" disabled>Usuń</button>
+      <label class="zoom-control">
+        <span>Powiększenie</span>
+        <select id="zoomSelect">
+          <option value="0.5">50%</option>
+          <option value="0.75" selected>75%</option>
+          <option value="1">100%</option>
+        </select>
+      </label>
+      <button id="simulationButton" type="button" class="primary">Uruchom symulację</button>
+      <button id="openButton" type="button">Otwórz projekt</button>
+      <button id="saveButton" type="button">Zapisz projekt</button>
+      <input id="projectFile" type="file" accept=".json,application/json" hidden>
+    </div>
+  </header>
+
+  <main class="studio-layout">
+    <aside class="palette-panel" aria-label="Paleta komponentów">
+      <div class="panel-heading">
+        <p>Rzeczywiste elementy LuaMCU</p>
+        <h1>Komponenty</h1>
+      </div>
+      <p class="panel-help">
+        Przeciągnij element na ekran albo kliknij go, aby dodać pośrodku.
+      </p>
+      <div id="componentPalette" class="component-palette"></div>
+    </aside>
+
+    <section class="canvas-panel" aria-label="Obszar projektu">
+      <div class="canvas-ruler">
+        <span id="canvasSizeLabel">1280 × 720</span>
+        <span>Siatka <strong id="gridSizeLabel">10 px</strong></span>
+      </div>
+      <div id="canvasViewport" class="canvas-viewport">
+        <div id="canvasSizer" class="canvas-sizer">
+          <div id="studioCanvas" class="studio-canvas"
+               role="application"
+               aria-label="Płótno wizualizacji LuaMCU"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="properties-panel" aria-label="Właściwości">
+      <div class="panel-heading">
+        <p>Edycja bez kodowania</p>
+        <h2>Właściwości</h2>
+      </div>
+      <div id="propertiesContent"></div>
+    </aside>
+  </main>
+
+  <footer class="studio-footer">
+    <span id="studioStatus" role="status">Projekt gotowy.</span>
+    <span id="validationStatus">Projekt poprawny</span>
+  </footer>
+</body>
+</html>
